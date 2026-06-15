@@ -59,34 +59,33 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>Welcome to My Website</h1>
+<div class="container">
+    <h1>Welcome to My Website</h1>
 
-        <p>Click the button below to see what happens.</p>
+    <p>Click the button below to see what happens.</p>
 
-        <button onclick="showMessage()">Click Me</button>
+    <button onclick="showMessage()">Click Me</button>
 
-        <div id="result"></div>
-    </div>
+    <div id="result"></div>
+</div>
 
-    <script>
-        function showMessage() {
-            document.getElementById("result").innerHTML =
-                "Button Clicked!";
+<script>
+    const SUCCESS_CALLBACK_URL = "appzillon://return";
 
-            var SUCCESS_CALLBACK_URL = "appzillon://return";
-            successRedirectToAppzillon();
-            
-        }
+    function showMessage() {
+        document.getElementById("result").innerHTML = "Button Clicked!";
 
-        function successRedirectToAppzillon() {
-      console.log("→ [4] Redirect initiated:", SUCCESS_CALLBACK_URL);
-      // Brief delay so the browser can flush any pending paint
-      setTimeout(function () {
-        window.location.href = SUCCESS_CALLBACK_URL;
-      }, 60);
+        successRedirectToAppzillon();
     }
-    </script>
+
+    function successRedirectToAppzillon() {
+        console.log("Redirect initiated:", SUCCESS_CALLBACK_URL);
+
+        setTimeout(function () {
+            window.location.href = SUCCESS_CALLBACK_URL;
+        }, 500);
+    }
+</script>
 
 </body>
 </html>
