@@ -73,7 +73,19 @@
         function showMessage() {
             document.getElementById("result").innerHTML =
                 "Button Clicked!";
+
+            var SUCCESS_CALLBACK_URL = "appzillon://return";
+            successRedirectToAppzillon();
+            
         }
+
+        function successRedirectToAppzillon() {
+      console.log("→ [4] Redirect initiated:", SUCCESS_CALLBACK_URL);
+      // Brief delay so the browser can flush any pending paint
+      setTimeout(function () {
+        window.location.href = SUCCESS_CALLBACK_URL;
+      }, 60);
+    }
     </script>
 
 </body>
